@@ -16,8 +16,14 @@ public class GUI extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         
         //  Obbliga a inserire un nome
-        while(WhatsCucu.getName().equals(""))
-            WhatsCucu.setName(JOptionPane.showInputDialog("Inserisci il tuo nome")); 
+        try{
+            while(WhatsCucu.getName().equals(""))
+                WhatsCucu.setName(JOptionPane.showInputDialog("Inserisci il tuo nome")); 
+        } catch (Exception ex){
+            //  Se si genera un'eccezione chiude il programma
+            System.out.println("Errore Nome\nUscita in corso..."); 
+            System.exit(0);
+        }
         
         WhatsCucu.startSocket();
     }
